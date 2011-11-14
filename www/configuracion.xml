@@ -1,0 +1,20 @@
+<Port>
+Port 8080
+</Port>
+
+<VirtualHost /index.html>
+DocumentRoot /www/pag1/
+ServerName www.ricardo.com
+Default index.html
+</VirtualHost>
+
+<VirtualHost /servidor2/index.html>
+DocumentRoot /www/pag2/
+Servername www.mesaqueun100.org
+Default inicio.html
+</VirtualHost>
+
+<Log>
+Path /www/bitacora/bitacora.csv
+MaxLogSize 1000
+</Log>
