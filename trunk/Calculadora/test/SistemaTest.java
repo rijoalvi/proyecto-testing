@@ -3,6 +3,8 @@
  * and open the template in the editor.
  */
 
+import java.io.FileNotFoundException;
+import org.mockito.InOrder;
 import org.junit.Ignore;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -11,19 +13,24 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import static org.mockito.Mockito.*;
+
 /**
  *
  * @author Fran
  */
 public class SistemaTest {    
-    
+    static EscritorArchivos escritorMock;
     public SistemaTest() {
     }
 
     @BeforeClass
     public static void setUpClass() throws Exception {
         System.out.println("Before Class");
-        System.out.println("Abriendo Conexión con la Base de Datos");        
+        System.out.println("Abriendo Conexión con la Base de Datos");   
+        escritorMock = mock(EscritorArchivos.class);
+        when(escritorMock.numeroLineas()).thenReturn(1);
+        doThrow(new FileNotFoundException()).when(escritorMock).borrarArchivo();        
     }
 
     @AfterClass
@@ -270,7 +277,7 @@ public class SistemaTest {
         fail("The test case is a prototype.");
     }
     
-    @Test(timeout=1)
+    @Test(timeout=1000)
     public void testMetodoCritico() {
         System.out.println("metodocritico");
         Sistema instance = new SistemaImpl();
@@ -278,6 +285,21 @@ public class SistemaTest {
         //(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testGuardarResultado(){
+        System.out.println("GuardarResultado Test");
+        Sistema instance = new SistemaImpl();
+        
+        InOrder inOrder = inOrder(escritorMock);
+        instance.guardarResultado(escritorMock);                               
+        /*
+         * en este orden es en el que se deberia llamar a los metodos del la
+         * clase EscritorArchivos, pero falla porque se llaman al reves
+         */
+        inOrder.verify(escritorMock).guardarMsj();
+        inOrder.verify(escritorMock).setMensaje(anyString());        
     }
 /* 
     public static void crearArchivo(){
