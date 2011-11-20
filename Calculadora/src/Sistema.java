@@ -126,5 +126,13 @@ abstract public class Sistema {
           
       }
   }
+  
+  public void guardarResultado(EscritorArchivos escritor){      
+      escritor.guardarMsj();
+      escritor.setMensaje(String.valueOf(resultado));
+      
+  }
+  
+  
     
 }
