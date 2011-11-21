@@ -27,7 +27,15 @@ public class EscritorArchivos {
         return 0;
     }
     
+    public String getSiguienteLinea(){
+        return "";
+    }
+    
     public void borrarArchivo(){
         
+    }
+    
+    public boolean guardarMensajeArchivoExterno(String msj){
+        return false;
     }
 }

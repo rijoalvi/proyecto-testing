@@ -129,7 +129,16 @@ abstract public class Sistema {
   
   public void guardarResultado(EscritorArchivos escritor){      
       escritor.guardarMsj();
-      escritor.setMensaje(String.valueOf(resultado));
+      escritor.setMensaje(String.valueOf(resultado));      
+  }
+  
+  public void escribirResultadoEnArchivoExterno(EscritorArchivos escritor){
+      int intentos = 3;
+      boolean conexionExitosa = false;
+      while (intentos>0 && !conexionExitosa){
+          conexionExitosa = escritor.guardarMensajeArchivoExterno(String.valueOf(resultado));
+          intentos--;
+      }
       
   }
   
