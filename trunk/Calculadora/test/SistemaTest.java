@@ -28,9 +28,18 @@ public class SistemaTest {
     public static void setUpClass() throws Exception {
         System.out.println("Before Class");
         System.out.println("Abriendo Conexión con la Base de Datos");   
+        
+        /*creacion del mock de EscritorArchivo*/
         escritorMock = mock(EscritorArchivos.class);
+        
+        /*definicion de stub. Metodo númeroLineas*/
         when(escritorMock.numeroLineas()).thenReturn(1);
-        doThrow(new FileNotFoundException()).when(escritorMock).borrarArchivo();        
+        
+        /*Uso de thenReturn() consecutivo*/
+        when(escritorMock.getSiguienteLinea()).thenReturn("linea 1").thenReturn("linea 2").thenReturn("linea 3");
+        
+        /*definición de excepcion lanzada por un metodo void*/
+        doThrow(new RuntimeException()).when(escritorMock).borrarArchivo();        
     }
 
     @AfterClass
@@ -282,13 +291,24 @@ public class SistemaTest {
         System.out.println("metodocritico");
         Sistema instance = new SistemaImpl();
         instance.metodoCritico();
-        //(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
     
     @Test
     public void testGuardarResultado(){
+        System.out.println("GuardarResultado Test");
+        Sistema instance = new SistemaImpl();
+                
+        instance.guardarResultado(escritorMock);                               
+        /*
+         * Uso de verify() para probar que ambos métodos del EscritorArchivos
+         * sean llamados
+         */
+        verify(escritorMock).guardarMsj();
+        verify(escritorMock).setMensaje(anyString());        
+    }
+    
+    @Test
+    public void testGuardarResultado2(){
         System.out.println("GuardarResultado Test");
         Sistema instance = new SistemaImpl();
         
@@ -297,9 +317,31 @@ public class SistemaTest {
         /*
          * en este orden es en el que se deberia llamar a los metodos del la
          * clase EscritorArchivos, pero falla porque se llaman al reves
-         */
-        inOrder.verify(escritorMock).guardarMsj();
+         */        
         inOrder.verify(escritorMock).setMensaje(anyString());        
+        inOrder.verify(escritorMock).guardarMsj();
+    }
+    
+    @Test
+    public void testConAtMost(){        
+        System.out.println("At Most Test");
+        Sistema instance = new SistemaImpl();
+        
+        instance.escribirResultadoEnArchivoExterno(escritorMock);
+        
+        /*
+         * Mockito permite verificar que un metodo sea llamado el numero de veces
+         * requerido, Usando AtLeast(), AtMost(), AtLeastOnce(), times() y never()
+         */
+        verify(escritorMock, atLeast(1)).guardarMensajeArchivoExterno(anyString());
+        verify(escritorMock, atLeastOnce()).guardarMensajeArchivoExterno(anyString());                            
+        verify(escritorMock, atMost(3)).guardarMensajeArchivoExterno(anyString());
+        verify(escritorMock, never()).setMensaje("mensaje");
+        /*
+         * otra caracteristica de mockito es que a pesar de que no se hizo el stub
+         * respectivo del metodo guardarMensaje... siempre retorno algo, en este
+         * false
+         */
     }
 /* 
     public static void crearArchivo(){
