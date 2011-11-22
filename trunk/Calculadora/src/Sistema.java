@@ -121,18 +121,26 @@ abstract public class Sistema {
       }
       return cad;
   }
-  
+  /*
+   * Metodo que se deberia ejecutar de forma eficiente, 
+   * por ejemplo una transaccion bancaria
+   */
   public void metodoCritico(){
       while(true){
           
       }
   }
-  
+  /*
+   * El metodo esta mal programado, orden de invocacion de metodo erroneo
+   */
   public void guardarResultado(EscritorArchivos escritor){      
       escritor.guardarMsj();
       escritor.setMensaje(String.valueOf(resultado));      
   }
   
+  /*
+   * Intenta por lo menos 3 veces llamar al metodo guardar...
+   */
   public void escribirResultadoEnArchivoExterno(EscritorArchivos escritor){
       int intentos = 3;
       boolean conexionExitosa = false;
