@@ -10,6 +10,7 @@ abstract public class Sistema {
       this.numeroB = 0;
       this.resultado = 0;
       this.operacion = ' ';
+      this.base = 10;
   }
 
   public void setNumeroA(int n){
@@ -140,6 +141,17 @@ abstract public class Sistema {
           intentos--;
       }
       
+  }
+  
+  public boolean iguales (int a, int b){
+      boolean respuesta = false;
+      if (a == b){
+          respuesta = true;
+      }
+      else{
+          respuesta = false;
+      }
+      return respuesta;
   }
   
   

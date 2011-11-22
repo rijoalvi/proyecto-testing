@@ -44,13 +44,13 @@ public class SistemaTest {
 
     @AfterClass
     public static void tearDownClass() throws Exception {
-        System.out.println("Ater Class");
+        System.out.println("\nAfter Class");
         System.out.println("Cerrando Conexión con la Base de Datos");
     }
     
     @Before
     public void setUp() {
-        System.out.println("Before Test");
+        System.out.println("\nBefore Test");
     }
     
     @After
@@ -68,7 +68,7 @@ public class SistemaTest {
         Sistema instance = new SistemaImpl();
         instance.setNumeroA(n);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -81,7 +81,7 @@ public class SistemaTest {
         Sistema instance = new SistemaImpl();
         instance.setNumeroB(n);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -94,7 +94,7 @@ public class SistemaTest {
         Sistema instance = new SistemaImpl();
         instance.setResultado(n);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -107,7 +107,7 @@ public class SistemaTest {
         Sistema instance = new SistemaImpl();
         instance.setOperacion(o);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -121,7 +121,7 @@ public class SistemaTest {
         int result = instance.getNumeroA();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -135,7 +135,7 @@ public class SistemaTest {
         int result = instance.getNumeroB();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+  //      fail("The test case is a prototype.");
     }
 
     /**
@@ -149,7 +149,7 @@ public class SistemaTest {
         int result = instance.getResultado();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -163,7 +163,7 @@ public class SistemaTest {
         char result = instance.getOperacion();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -175,7 +175,7 @@ public class SistemaTest {
         Sistema instance = new SistemaImpl();
         instance.suma();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -187,7 +187,7 @@ public class SistemaTest {
         Sistema instance = new SistemaImpl();
         instance.resta();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -200,7 +200,7 @@ public class SistemaTest {
         Sistema instance = new SistemaImpl();
         instance.multiplicacion();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -214,7 +214,7 @@ public class SistemaTest {
         instance.setNumeroB(0);
         instance.division();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -224,11 +224,11 @@ public class SistemaTest {
     @Test    
     public void testEstablecerNumeroA() {
         System.out.println("establecerNumeroA");
-        String a = "";
+        String a = "4";
         Sistema instance = new SistemaImpl();
         instance.establecerNumeroA(a);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -237,11 +237,11 @@ public class SistemaTest {
     @Test
     public void testEstablecerNumeroB() {
         System.out.println("establecerNumeroB");
-        String b = "";
+        String b = "8";
         Sistema instance = new SistemaImpl();
         instance.establecerNumeroB(b);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -251,11 +251,11 @@ public class SistemaTest {
     public void testRetornarNumeroA() {
         System.out.println("retornarNumeroA");
         Sistema instance = new SistemaImpl();
-        String expResult = "";
+        String expResult = "0";
         String result = instance.retornarNumeroA();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -265,11 +265,11 @@ public class SistemaTest {
     public void testRetornarNumeroB() {
         System.out.println("retornarNumeroB");
         Sistema instance = new SistemaImpl();
-        String expResult = "";
+        String expResult = "0";
         String result = instance.retornarNumeroB();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
 
     /**
@@ -279,13 +279,14 @@ public class SistemaTest {
     public void testRetornarResultado() {
         System.out.println("retornarResultado");
         Sistema instance = new SistemaImpl();
-        String expResult = "";
+        String expResult = "0";
         String result = instance.retornarResultado();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+//        fail("The test case is a prototype.");
     }
     
+    @Ignore
     @Test(timeout=1000)
     public void testMetodoCritico() {
         System.out.println("metodocritico");
@@ -343,6 +344,43 @@ public class SistemaTest {
          * false
          */
     }
+    
+    @Test
+    public void testConThenReturn(){        
+        System.out.println("Then Return Test");
+        Sistema instance = new SistemaImpl();
+        
+        instance.escribirResultadoEnArchivoExterno(escritorMock);
+        
+        /*
+         * Mockito permite personalizar que valores retorna un mock mediante la 
+         * instruccion thenReturn()
+         */
+        System.out.println("Numero de lineas: "+escritorMock.numeroLineas());
+        System.out.println("Numero de lineas: "+escritorMock.numeroLineas());
+        System.out.println(escritorMock.getSiguienteLinea());
+        System.out.println(escritorMock.getSiguienteLinea());
+        System.out.println(escritorMock.getSiguienteLinea());
+        System.out.println(escritorMock.getSiguienteLinea());
+        System.out.println(escritorMock.getSiguienteLinea());
+    }
+    
+    @Test
+    public void testIguales(){        
+        System.out.println("Iguales Test");
+        Sistema instance = new SistemaImpl();
+        boolean result = instance.iguales(10, 10);
+        assertTrue(result);
+    }
+    
+    @Test
+    public void testDiferentes(){        
+        System.out.println("Not Iguales Test");
+        Sistema instance = new SistemaImpl();
+        boolean result = instance.iguales(15, 10);
+        assertFalse(result);
+    }
+    
 /* 
     public static void crearArchivo(){
         File archivo;
